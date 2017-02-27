@@ -1,0 +1,7 @@
+{
+  "name": "objector-clustering",
+  "description": "Clustering App",
+  "image": "heroku/python",
+  "repository": "https://github.com/rijatru/objector-clustering",
+  "keywords": ["python"]
+}
