@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    r = requests.get('http://api.icndb.com/jokes/random')
+    r = requests.get('https://objector-clustering.herokuapp.com/jokes/random')
     data = json.loads(r.text)
     joke = data['value']['joke']
     return render_template('index.html', joke=joke)
