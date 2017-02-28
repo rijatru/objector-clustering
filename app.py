@@ -18,6 +18,8 @@ tasks = [
 ]
 
 
-@app.route('/', methods=['GET'])
+@app.route('/api/v1.0/cluster', methods=['GET'])
 def source():
     return jsonify({'tasks': tasks})
+
+app.run()
