@@ -1,7 +1,7 @@
 {
-    "name": "tensorflow-mnist",
-    "buildpacks": [
-        { "url": "https://github.com/heroku/heroku-buildpack-nodejs" },
-        { "url": "https://github.com/heroku/heroku-buildpack-python" }
-    ]
+  "name": "Clustering",
+  "description": "A python ML App",
+  "image": "heroku/python",
+  "repository": "https://github.com/rijatru/objector-clustering.git",
+  "keywords": ["python"]
 }
