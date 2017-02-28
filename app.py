@@ -21,3 +21,6 @@ tasks = [
 @app.route('/api/v1.0/cluster', methods=['GET'])
 def source():
     return jsonify({'tasks': tasks})
+
+if __name__ == '__main__':
+    app.run(debug=True)
