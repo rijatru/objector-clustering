@@ -1,11 +1,9 @@
-import flask
+from flask import Flask
 
-app = flask.Flask(__name__)
-
-
-@app.route("/")
-def index():
-    return "Hello Heruko"
+app = Flask(__name__)
 
 
-app.run()
+@app.route('/')
+def source():
+    html = 'Hello World!'
+    return html
