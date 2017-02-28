@@ -1,7 +1,5 @@
-distribute
 gunicorn==19.6.0
 Flask==0.10.1
 Flask-RESTful==0.2.12
 Jinja2==2.6
 Werkzeug==0.8.3
-wsgiref
