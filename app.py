@@ -7,4 +7,5 @@ app = Flask(__name__)
 def index():
     return 'OK!'
 
-app.run()
+
+app.run(debug=True)
