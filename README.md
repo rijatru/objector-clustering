@@ -1,31 +1,44 @@
-# MNIST classification by TensorFlow #
+# python-getting-started
 
-- [MNIST For ML Beginners](https://www.tensorflow.org/tutorials/mnist/beginners/)
-- [Deep MNIST for Experts](https://www.tensorflow.org/tutorials/mnist/pros/)
+A barebones Python app, which can easily be deployed to Heroku.
 
-![screencast](https://cloud.githubusercontent.com/assets/80381/11339453/f04f885e-923c-11e5-8845-33c16978c54d.gif)
+This application supports the [Getting Started with Python on Heroku](https://devcenter.heroku.com/articles/getting-started-with-python) article - check it out.
 
-### Requirement ###
+## Running Locally
 
-- Python >=2.7 or >=3.4
-  - TensorFlow >=1.0
-- Node >=6.9
+Make sure you have Python [installed properly](http://install.python-guide.org).  Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/) and [Postgres](https://devcenter.heroku.com/articles/heroku-postgresql#local-setup).
 
+```sh
+$ git clone git@github.com:heroku/python-getting-started.git
+$ cd python-getting-started
 
-### How to run ###
+$ pip install -r requirements.txt
 
-    $ pip install -r requirements.txt
-    $ npm install
-    $ gunicorn main:app --log-file=-
+$ createdb python_getting_started
 
+$ python manage.py migrate
+$ python manage.py collectstatic
 
-### Deploy to Heroku ###
+$ heroku local
+```
 
-    $ heroku apps:create [NAME]
-    $ heroku buildpacks:add heroku/nodejs
-    $ heroku buildpacks:add heroku/python
-    $ git push heroku master
+Your app should now be running on [localhost:5000](http://localhost:5000/).
 
-or Heroku Button.
+## Deploying to Heroku
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+```sh
+$ heroku create
+$ git push heroku master
+
+$ heroku run python manage.py migrate
+$ heroku open
+```
+or
+
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
+## Documentation
+
+For more information about using Python on Heroku, see these Dev Center articles:
+
+- [Python on Heroku](https://devcenter.heroku.com/categories/python)
