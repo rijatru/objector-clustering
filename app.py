@@ -1,4 +1,5 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
+from werkzeug.exceptions import abort
 
 app = Flask(__name__)
 
@@ -21,6 +22,26 @@ tasks = [
 @app.route('/api/v1.0/cluster', methods=['GET'])
 def source():
     return jsonify({'tasks': tasks})
+
+
+@app.route('/api/v1.0/cluster', methods=['POST'])
+def create_task():
+
+    if not request.json or not request.json['task']:
+        abort(400)
+
+    request_task = request.json.get('task')
+
+    task = {
+        'id': tasks[-1]['id'] + 1,
+        'title': request_task.get('title'),
+        'description': request_task.get('description', ""),
+        'done': False
+    }
+
+    tasks.append(task)
+    return jsonify({'task': task}), 201
+
 
 if __name__ == '__main__':
     app.run(debug=True)
