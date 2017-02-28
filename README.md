@@ -1,44 +1,28 @@
-# python-getting-started
+# Miniconda on Heroku Example App
 
-A barebones Python app, which can easily be deployed to Heroku.
+This repository contains two things:
 
-This application supports the [Getting Started with Python on Heroku](https://devcenter.heroku.com/articles/getting-started-with-python) article - check it out.
+- A `Dockerfile`, which installs [scikit-learn](http://scikit-learn.org/stable/) with [miniconda](http://conda.pydata.org/miniconda.html), and a few [pip](https://pip.pypa.io/en/stable/) dependencies.
+- A [Flask](http://flask.pocoo.org) `webapp`, which utilizes basic functionality of `scikit-learn`.
 
-## Running Locally
+All [Anaconda packages](https://docs.continuum.io/anaconda/pkg-docs) are supported—`scikit-learn` is just being used here as an example. 
 
-Make sure you have Python [installed properly](http://install.python-guide.org).  Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/) and [Postgres](https://devcenter.heroku.com/articles/heroku-postgresql#local-setup).
+## ☤ Advantages over [Conda Buildpack](https://github.com/kennethreitz/conda-buildpack):
 
-```sh
-$ git clone git@github.com:heroku/python-getting-started.git
-$ cd python-getting-started
+- No slug size limit (Anaconda packages can be very large). 
+- Exact Miniconda environment, from Continuum Analytics.
 
-$ pip install -r requirements.txt
+## ☤ Deploy this Application:
 
-$ createdb python_getting_started
+Deploy with the [Container Registry and Runtime](https://devcenter.heroku.com/articles/container-registry-and-runtime):
 
-$ python manage.py migrate
-$ python manage.py collectstatic
+     $ heroku plugins:install heroku-container-registry
+     $ heroku container:login
+     
+     $ git clone https://github.com/heroku-examples/python-miniconda
+     $ cd python-miniconda
+     
+     $ heroku create
+     $ heroku container:push 
 
-$ heroku local
-```
-
-Your app should now be running on [localhost:5000](http://localhost:5000/).
-
-## Deploying to Heroku
-
-```sh
-$ heroku create
-$ git push heroku master
-
-$ heroku run python manage.py migrate
-$ heroku open
-```
-or
-
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
-## Documentation
-
-For more information about using Python on Heroku, see these Dev Center articles:
-
-- [Python on Heroku](https://devcenter.heroku.com/categories/python)
+✨🍰✨
