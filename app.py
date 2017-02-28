@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 from werkzeug.exceptions import abort
-from clustering import load_data
+#from clustering import load_data
 
 app = Flask(__name__)
 
@@ -23,9 +23,9 @@ tasks = [
 @app.route('/api/v1.0/cluster', methods=['GET'])
 def source():
 
-    return load_data()
+    #return load_data()
 
-    #return jsonify({'tasks': tasks})
+    return jsonify({'tasks': tasks})
 
 
 @app.route('/api/v1.0/cluster', methods=['POST'])
